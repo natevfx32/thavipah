@@ -20,7 +20,7 @@
             position: relative;
         }
         .title {
-            font-size: 4em;
+            font-size: 3em; /* Reduced font size to 75% */
             margin-top: 20px;
             background: linear-gradient(45deg, #99ccff, #0077cc, #99ccff);
             background-size: 200% 200%;
@@ -34,6 +34,7 @@
             margin-top: 50px;
         }
         h1, h2 {
+            font-size: 2.25em; /* Reduced font size to 75% */
             background: linear-gradient(45deg, #99ccff, #0077cc, #99ccff);
             background-size: 200% 200%;
             animation: gradientAnimation 3s ease infinite;
@@ -41,16 +42,18 @@
             -webkit-text-fill-color: transparent;
         }
         p {
-            font-size: 1.2em;
+            font-size: 0.9em; /* Reduced font size to 75% */
             margin: 40px 0; /* Increased margin for more spacing */
         }
         .button {
-            background-color: #99ccff;
+            background: linear-gradient(45deg, #99ccff, #0077cc, #99ccff);
+            background-size: 200% 200%;
+            animation: gradientAnimation 3s ease infinite;
             color: #121212;
-            padding: 15px 30px;
+            padding: 10px 20px; /* Adjusted padding for smaller button size */
             border: none;
             border-radius: 5px;
-            font-size: 1em;
+            font-size: 0.75em; /* Reduced font size to 75% */
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
@@ -62,7 +65,7 @@
         }
         .footer {
             margin-top: 60px; /* Increased margin for more spacing */
-            font-size: 1em;
+            font-size: 0.75em; /* Reduced font size to 75% */
         }
 
         @keyframes gradientAnimation {
@@ -87,8 +90,8 @@
         <section>
             <h2>Thank You!</h2>
             <p>Thanks for reading this. I wish you an amazing day!</p>
+            <div class="footer">@thavipah</div> <!-- Moved the footer inside the section for correct placement -->
         </section>
-        <div class="footer">@thavipah</div>
     </div>
 </body>
 </html>
