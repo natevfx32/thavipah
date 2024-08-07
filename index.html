@@ -7,100 +7,76 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
 
-        :root {
-            --main-bg: linear-gradient(135deg, #121212, #0f0f0f);
-            --card-bg: linear-gradient(145deg, #1e1e1e, #242424);
-            --accent: #0077cc;
-            --text: #f0f0f0;
-            --shadow-light: rgba(255, 255, 255, 0.05);
-            --shadow-dark: rgba(0, 0, 0, 0.2);
-        }
-
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
             font-family: 'Roboto', sans-serif;
-            background: var(--main-bg);
-            color: var(--text);
-            line-height: 1.6;
+            background-color: #121212;
+            color: #f0f0f0;
             display: flex;
             flex-direction: column;
             align-items: center;
             height: 100vh;
             position: relative;
-            overflow-x: hidden;
+            overflow: hidden; /* Prevents scrollbars due to particles */
         }
-
         #particles-js {
             position: absolute;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
-            z-index: -1;
+            z-index: -1; /* Ensures particles are in the background */
         }
-
         .title {
-            font-size: 3.5rem;
-            margin-top: 60px;
-            text-align: center;
-            background: linear-gradient(45deg, var(--accent), #005f9e);
+            font-size: 2.25em; /* Original size */
+            margin-top: 60px; /* Increased top margin for more spacing from the top */
+            text-align: center; /* Centered text */
+            background: linear-gradient(45deg, #99ccff, #0077cc, #99ccff);
             background-size: 200% 200%;
             animation: gradientAnimation 3s ease infinite;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 1;
+            max-width: 800px;
+            text-align: center;
+            margin-top: 50px;
         }
-
         h1, h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--accent), #005f9e);
+            font-size: 1.4375em; /* Reduced size to 85% of the original */
+            background: linear-gradient(45deg, #99ccff, #0077cc, #99ccff);
             background-size: 200% 200%;
             animation: gradientAnimation 3s ease infinite;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 30px; /* Increased bottom margin for more spacing between text and sections */
         }
-
         p {
-            font-size: 1rem;
-            margin: 30px 0;
+            font-size: 0.9em; /* Reduced font size to 75% */
+            margin: 30px 0; /* Increased margin for more spacing between sections */
         }
-
         .button {
-            background: linear-gradient(45deg, var(--accent), #005f9e);
+            background: linear-gradient(45deg, #99ccff, #0077cc, #99ccff);
             background-size: 200% 200%;
             animation: gradientAnimation 3s ease infinite;
-            color: var(--text);
-            padding: 10px 20px;
+            color: #121212;
+            padding: 10px 20px; /* Adjusted padding for smaller button size */
             border: none;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: 0.75em; /* Reduced font size to 75% */
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
             margin-top: 20px;
             transition: background-color 0.3s ease;
         }
-
         .button:hover {
-            background-color: #005f9e;
+            background-color: #0077cc;
         }
-
         .footer {
-            margin-top: 60px;
-            font-size: 0.75em;
+            margin-top: 60px; /* Increased margin for more spacing */
+            font-size: 0.75em; /* Reduced font size to 75% */
         }
 
         @keyframes gradientAnimation {
@@ -112,7 +88,6 @@
 </head>
 <body>
     <div id="particles-js"></div>
-    <div class="title">About Thavipah</div>
     <div class="container">
         <section>
             <h1>Who is Thavipah?</h1>
@@ -122,6 +97,7 @@
             <h2>My Projects</h2>
             <p>I am the owner and sole developer of Project Pulse. Additionally, I am interested in coding Discord bots in Python.</p>
             <a href="https://discord.gg/pulsefn" class="button">Join Project Pulse</a>
+            <br><br> <!-- Extra space between button and "Thank You!" -->
         </section>
         <section>
             <h2>Thank You!</h2>
@@ -132,14 +108,28 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(el => observer.observe(el));
+        });
+
         particlesJS('particles-js', {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#0077cc" },
+                color: { value: "#99ccff" }, // Light blue for particles
                 shape: { type: "circle" },
                 opacity: { value: 0.5, random: false },
                 size: { value: 3, random: true },
-                line_linked: { enable: true, distance: 150, color: "#005f9e", opacity: 0.4, width: 1 },
+                line_linked: { enable: true, distance: 150, color: "#0077cc", opacity: 0.4, width: 1 }, // Darker blue for lines
                 move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
             },
             interactivity: {
@@ -148,6 +138,14 @@
                 modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
             },
             retina_detect: true
+        });
+
+        window.addEventListener('load', function(){
+            const loader = document.querySelector('.loader-wrapper');
+            loader.className += ' hidden';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 1000);
         });
     </script>
 </body>
