@@ -193,7 +193,7 @@
     <script>
         // Function to fetch and display the current click count from the server
         function updateCounter() {
-            fetch('http://45.143.196.234:3000/clicks')
+            fetch('https://fire-beautiful-thyme.glitch.me')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('clickCounter').textContent = data.count;
@@ -203,7 +203,7 @@
 
         // Function to increment the click count on the server
         function incrementCounter() {
-            fetch('https://fire-beautiful-thyme.glitch.me/', { method: 'POST' })
+            fetch('https://fire-beautiful-thyme.glitch.me', { method: 'POST' })
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('clickCounter').textContent = data.count;
